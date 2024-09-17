@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab2</title>
+    <style>
+       
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            margin: 20px 0;
+            font-size: 2rem;
+            color: #444;
+        }
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        input[type="number"] {
+            padding: 10px;
+            width: 120px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #squareResult {
+            font-size: 1.2rem;
+            margin-top: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 40px;
+        }
+        .gallery img {
+            width: 150px;
+            height: 150px;
+            border-radius: 10px;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.4s, box-shadow 0.4s;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .gallery img:hover {
+            transform: scale(1.2);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Styling for responsive design */
+        @media (max-width: 768px) {
+            .gallery img {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Task 1: Square a Number -->
+    <h1>Task 1: Square a Number</h1>
+    <p>Enter a number and get its square:</p>
+    <input type="number" id="numberInput" placeholder="Enter a number">
+    <br>
+    <button onclick="calculateSquare()">Get Square</button>
+    <p id="squareResult"></p>
+
+    <!-- Task 2: Change Background Color -->
+    <h1>Task 2: Change Background Color</h1>
+    <button onclick="changeColor()">Click to Change Background Color</button>
+
+    <!-- Task 3: Image Gallery with Hover Effect -->
+    <h1>Task 3: Image Gallery</h1>
+    <div class="gallery">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png" alt="Image 1">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1200px-Unofficial_JavaScript_logo_2.svg.png" alt="Image 2">
+        <img src="https://miro.medium.com/v2/resize:fit:792/1*lJ32Bl-lHWmNMUSiSq17gQ.png" alt="Image 3">
+    </div>
+
+    <script>
+        // Task 1
+        function calculateSquare() {
+            const num = document.getElementById('numberInput').value;
+            if (num === '') {
+                document.getElementById('squareResult').innerText = 'Please enter a number.';
+            } else {
+                const result = num * num;
+                document.getElementById('squareResult').innerText = "Square: " + result;
+            }
+        }
+
+        // Task 2
+        function changeColor() {
+            const randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+            document.body.style.backgroundColor = randomColor;
+        }
+    </script>
+
+</body>
+</html>
